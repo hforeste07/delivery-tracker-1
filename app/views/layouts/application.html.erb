@@ -12,10 +12,16 @@
 
   <body>
     <nav>
-        <a href="/users/sign_in">Sign in</a> |
-        <a href="/users/sign_up">Sign up</a>
+      <% if current_user.present? %>
+        <a href="/">Delivery Tracker</a> | 
+        <a href="/users/edit">Edit profile</a> | 
+        <a href="/users/sign_out">Sign out</a>
+      <% else %>
+        <a href="/users/sign_up">Sign up</a> | 
+        <a href="/users/sign_in">Sign in</a>
+      <% end %>
     </nav>
-    
+
     <% if notice.present? %>
       <div class="text-success">
         <%= notice %>
