@@ -40,7 +40,7 @@
         <textarea id="details_box" name="query_details" rows="3"></textarea>
       </div>
 
-      <button action="/insert_delivery" method="post">
+      <button type="submit">
         Log delivery
       </button>
     </form>
@@ -51,7 +51,7 @@
 
 <% list_of_packages = current_user.deliveries.where(arrived: false).order({:supposed_to_arrive_on => :asc}) %>
 
-<div class="waiting_on" background-color: lightyellow;>
+<div class="waiting_on" style="background-color: lightyellow;">
   <h2>Waiting on</h2>
   <ul>
     <% list_of_packages.each do |package| %>
@@ -73,7 +73,7 @@
 
 <hr>
 
-<div class="received" background-color: green>
+<div class="received" style="background-color: green">
   <h2>Received</h2>
   <% delivered = current_user.deliveries.where(arrived: true).order(updated_at: :desc) %>
   <ul>
