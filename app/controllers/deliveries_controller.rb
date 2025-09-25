@@ -2,6 +2,9 @@ class DeliveriesController < ApplicationController
   before_action :authenticate_user!
   
   def index
+    matching_deliveries = Delivery.all
+    @list_of_deliveries = matching_deliveries.order({ :created_at => :desc })
+    
     render({ :template => "deliveries/index" })
   end
 
