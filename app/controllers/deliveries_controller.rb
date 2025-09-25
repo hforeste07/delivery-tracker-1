@@ -1,9 +1,5 @@
 class DeliveriesController < ApplicationController
   def index
-    matching_deliveries = Delivery.all
-
-    @list_of_deliveries = matching_deliveries.order({ :created_at => :desc })
-
     render({ :template => "deliveries/index" })
   end
 
